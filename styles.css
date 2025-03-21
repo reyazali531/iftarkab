@@ -1,0 +1,474 @@
+/* Global Styles */
+:root {
+    --primary-color: #1e3a8a;
+    --secondary-color: #3b82f6;
+    --accent-color: #60a5fa;
+    --light-color: #dbeafe;
+    --dark-color: #1e3a8a;
+    --gold: #fcd34d;
+    --white: #ffffff;
+    --panel-bg: rgba(30, 58, 138, 0.8);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    color: var(--white);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Background Animation */
+.stars, .twinkling, .clouds {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.stars {
+    background: #000 url('https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/img/stars.png') repeat top center;
+    z-index: -3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    
+    
+
+}
+
+.twinkling {
+    background: transparent url('https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/img/twinkling.png') repeat top center;
+    z-index: -2;
+    animation: move-twink-back 200s linear infinite;
+}
+
+@keyframes move-twink-back {
+    from {background-position: 0 0;}
+    to {background-position: -10000px 5000px;}
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 40px 0;
+    position: relative;
+    margin-bottom: 40px;
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.7), rgba(30, 41, 59, 0.7));
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.moon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ffd700, #ffec99);
+    box-shadow: 0 0 20px #ffd700, 0 0 40px rgba(255, 215, 0, 0.4);
+    position: relative;
+    animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 15px #ffd700, 0 0 30px rgba(255, 215, 0, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 25px #ffd700, 0 0 50px rgba(255, 215, 0, 0.7);
+    }
+}
+
+.crater {
+    background-color: rgba(255, 203, 107, 0.3);
+    border-radius: 50%;
+    position: absolute;
+}
+
+.crater-1 {
+    width: 20px;
+    height: 20px;
+    top: 15px;
+    left: 15px;
+}
+
+.crater-2 {
+    width: 15px;
+    height: 15px;
+    top: 40px;
+    left: 30px;
+}
+
+.crater-3 {
+    width: 10px;
+    height: 10px;
+    top: 20px;
+    left: 45px;
+}
+
+.header-text h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    text-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(to right, var(--gold), #fff9a6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 2s infinite;
+}
+
+.header-text h2 {
+    font-size: 1.8rem;
+    color: var(--light-color);
+    margin-bottom: 10px;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.arabic-text {
+    font-family: 'Amiri', serif;
+    font-size: 1.4rem;
+    color: var(--gold);
+    margin-top: 15px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.mosque-silhouette {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%23060e33'%3E%3C/path%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%23060e33'%3E%3C/path%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%23060e33'%3E%3C/path%3E%3C/svg%3E");
+    background-size: cover;
+    background-position: bottom;
+}
+
+/* Current Info Section */
+.current-info {
+    text-align: center;
+    margin-bottom: 40px;
+    background: var(--panel-bg);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.date-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.gregorian-date {
+    font-size: 1.3rem;
+    color: var(--light-color);
+}
+
+.islamic-date {
+    font-size: 1.5rem;
+    color: var(--gold);
+    font-weight: 600;
+}
+
+.day-number {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+}
+
+/* Prayer Times Section */
+.timings {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.prayer-time-box {
+    background: var(--panel-bg);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.prayer-time-box:hover {
+    transform: translateY(-5px);
+}
+
+.prayer-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.prayer-label i {
+    font-size: 1.5rem;
+    color: var(--gold);
+}
+
+.prayer-label h3 {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.time {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin: 10px 0 20px;
+    color: var(--white);
+}
+
+.sehri .time {
+    color: var(--accent-color);
+}
+
+.iftar .time {
+    color: var(--gold);
+}
+
+.countdown-label {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    color: var(--light-color);
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.time-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.time-unit span:first-child {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    min-width: 45px;
+}
+
+.unit-label {
+    font-size: 0.8rem;
+    margin-top: 5px;
+    color: var(--light-color);
+}
+
+/* Calendar Section */
+.calendar-section {
+    background: var(--panel-bg);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow);
+}
+
+.calendar-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--gold);
+    font-size: 1.8rem;
+}
+
+.calendar-container {
+    overflow-x: auto;
+}
+
+.calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+.calendar-table th, .calendar-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.calendar-table th {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: var(--gold);
+    font-weight: 600;
+}
+
+.calendar-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.current-day {
+    background-color: rgba(252, 211, 77, 0.2) !important;
+    font-weight: bold;
+}
+
+/* Dua Section */
+.dua-section {
+    margin-bottom: 40px;
+}
+
+.dua-card {
+    background: var(--panel-bg);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    border-left: 5px solid var(--gold);
+}
+
+.dua-card h3 {
+    color: var(--gold);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.arabic {
+    font-family: 'Amiri', serif;
+    font-size: 1.8rem;
+    line-height: 2.2;
+    margin-bottom: 15px;
+    color: var(--white);
+}
+
+.transliteration {
+    font-style: italic;
+    margin-bottom: 10px;
+    color: var(--light-color);
+}
+
+.translation {
+    color: var(--accent-color);
+}
+
+/* Footer */
+footer {
+    background: var(--panel-bg);
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.developer-info {
+    text-align: center;
+}
+
+.developer-info img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+  }
+.developer-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--gold);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icon {
+    color: var(--light-color);
+    font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon:hover {
+    color: var(--gold);
+    transform: translateY(-3px);
+}
+
+.footer-note {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--light-color);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .header-text h1 {
+        font-size: 2.2rem;
+    }
+    
+    .header-text h2 {
+        font-size: 1.4rem;
+    }
+    
+    .arabic-text {
+        font-size: 2rem;
+    }
+    
+    .timings {
+        grid-template-columns: 1fr;
+    }
+    
+    .prayer-time-box {
+        padding: 20px 15px;
+    }
+    
+    .time {
+        font-size: 1.8rem;
+    }
+    
+    .dua-card {
+        padding: 20px;
+    }
+    
+    .arabic {
+        font-size: 1.5rem;
+    }
+}
